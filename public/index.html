@@ -98,11 +98,28 @@ html, body { height: 100%; font-family: 'Plus Jakarta Sans', sans-serif; backgro
 .toast.error { background: var(--error); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* HEADER MOBILE */
+.mobile-header { display: none; }
+
 @media (max-width: 768px) {
   html, body { overflow: auto; height: auto; }
   .container { flex-direction: column; height: auto; min-height: 100vh; }
   .left { display: none; }
-  .right { padding: 32px 16px 40px; min-height: 100vh; align-items: flex-start; overflow: visible; }
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 24px;
+    background: linear-gradient(160deg, rgba(10,15,50,1) 0%, rgba(20,30,90,0.95) 100%),
+      url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=900&q=80') center/cover no-repeat;
+  }
+  .mobile-header .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 0; }
+  .mobile-header .logo-icon { width: 36px; height: 36px; }
+  .mobile-header .logo-name { font-size: 18px; font-weight: 800; }
+  .mobile-header .logo-sub { font-size: 9px; }
+  .mobile-tagline { font-size: 12px; color: rgba(255,255,255,0.6); text-align: right; line-height: 1.4; }
+  .mobile-tagline strong { color: #6c9fff; display: block; font-size: 13px; }
+  .right { padding: 24px 16px 40px; min-height: auto; align-items: flex-start; overflow: visible; background: var(--bg); }
   .right::before { display: none; }
   .card { padding: 28px 20px 24px; border-radius: 16px; max-width: 100%; }
   .card-title { font-size: 20px; }
@@ -113,6 +130,24 @@ html, body { height: 100%; font-family: 'Plus Jakarta Sans', sans-serif; backgro
 </head>
 <body>
 <div class="container">
+
+  <!-- HEADER MOBILE -->
+  <div class="mobile-header">
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 52 60" fill="none">
+        <path d="M26 2L4 12V30C4 42.15 13.6 53.47 26 57C38.4 53.47 48 42.15 48 30V12L26 2Z" fill="url(#sgm)"/>
+        <path d="M18 30L23 35L34 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="sgm" x1="4" y1="2" x2="48" y2="57"><stop offset="0%" stop-color="#4a7fff"/><stop offset="100%" stop-color="#6c4fff"/></linearGradient></defs>
+      </svg>
+      <div class="logo-text">
+        <div class="logo-name"><span class="geo">GEO</span><span class="risk">RISK</span></div>
+        <div class="logo-sub">Monitor</div>
+      </div>
+    </div>
+    <div class="mobile-tagline"><strong>Tempo real</strong>Riscos climáticos</div>
+  </div>
+
+  <!-- LEFT (desktop) -->
   <div class="left">
     <div class="left-bg"></div>
     <div class="left-content">
@@ -140,6 +175,8 @@ html, body { height: 100%; font-family: 'Plus Jakarta Sans', sans-serif; backgro
       </div>
     </div>
   </div>
+
+  <!-- RIGHT -->
   <div class="right">
     <div class="card" id="main-card">
       <div class="tabs">
@@ -317,7 +354,7 @@ async function cadastrar() {
         <div class="success-icon"><i class="fa-solid fa-check"></i></div>
         <h3>Conta criada!</h3>
         <p>Bem-vindo ao GeoRisk Monitor, <strong>${nome}</strong>!<br>Redirecionando para o mapa...</p>
-        <button class="btn-primary" onclick="window.location.href='mapa.html'">Acessar o Mapa →</button>
+        <button class="btn-primary" onclick="window.location.href='mapa.html'">Acessar o Mapa &rarr;</button>
       </div>`;
     setTimeout(() => window.location.href = 'mapa.html', 2200);
   } catch {
