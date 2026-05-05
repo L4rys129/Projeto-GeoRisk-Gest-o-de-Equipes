@@ -20,12 +20,10 @@
 html, body { height: 100%; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); overflow: hidden; }
 .page { height: 100vh; display: flex; flex-direction: column; }
 
-/* EMERGENCY */
 #emergency-banner { display: none; align-items: center; justify-content: center; gap: 10px; padding: 10px 20px; background: var(--red); color: #fff; font-size: 13px; font-weight: 600; flex-shrink: 0; animation: pulse-bg 1.5s ease-in-out infinite; }
 #emergency-banner.show { display: flex; }
 @keyframes pulse-bg { 0%,100%{opacity:1} 50%{opacity:0.85} }
 
-/* HEADER */
 header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 20px; height: 58px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); z-index: 100; }
 .header-left { display: flex; align-items: center; gap: 12px; }
 .header-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none; }
@@ -46,22 +44,18 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .user-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
 .user-name { font-size: 12.5px; font-weight: 600; color: var(--text); max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* MAIN */
-.main { flex: 1; display: flex; overflow: hidden; }
+.main { flex: 1; display: flex; overflow: hidden; position: relative; }
 
-/* SIDEBAR */
-.sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--white); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+.sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--white); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; z-index: 200; }
 .sidebar-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: var(--border) transparent; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
 .sidebar-scroll::-webkit-scrollbar { width: 4px; }
 .sidebar-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
-/* CARDS */
 .s-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 13px; flex-shrink: 0; }
 .s-card-title { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
 .s-card-action { font-size: 10px; color: var(--blue); cursor: pointer; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .s-card-action:hover { text-decoration: underline; }
 
-/* DATA ROWS */
 .data-row { display: flex; align-items: center; gap: 9px; padding: 7px 9px; background: var(--white); border: 1px solid var(--border); border-radius: 9px; margin-bottom: 5px; transition: border-color 0.15s; min-width: 0; }
 .data-row:last-of-type { margin-bottom: 0; }
 .data-row:hover { border-color: #c7d2fe; }
@@ -70,7 +64,6 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .data-label { font-size: 9.5px; color: var(--text-3); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .data-value { font-size: 12.5px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
 
-/* risk bar */
 .risk-bar-wrap { margin-top: 8px; }
 .risk-bar-header { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--text-2); margin-bottom: 5px; font-weight: 500; }
 .risk-bar-track { height: 6px; background: var(--border); border-radius: 100px; overflow: hidden; }
@@ -79,19 +72,16 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .loading-text { font-size: 12px; color: var(--text-3); text-align: center; padding: 12px 0; animation: pulse-text 1.5s ease-in-out infinite; }
 @keyframes pulse-text { 0%,100%{opacity:0.5} 50%{opacity:1} }
 
-/* filters */
 .filter-row { display: flex; gap: 5px; flex-wrap: wrap; }
 .filter-btn { flex: 1; padding: 6px 4px; border-radius: 7px; border: 1.5px solid var(--border); background: var(--white); color: var(--text-2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; cursor: pointer; transition: all 0.15s; text-align: center; white-space: nowrap; }
 .filter-btn.active { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
 .filter-btn:hover:not(.active) { border-color: #c7d2fe; color: var(--blue); }
 
-/* legend */
 .legend-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 7px; font-size: 12px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; transition: background 0.15s; }
 .legend-item:last-child { margin-bottom: 0; }
 .legend-item:hover { background: var(--white); }
 .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
-/* alerts */
 .alert-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 7px; padding: 8px 9px; background: var(--white); border: 1px solid var(--border); border-radius: 9px; margin-bottom: 5px; transition: border-color 0.15s; }
 .alert-item:last-child { margin-bottom: 0; }
 .alert-item:hover { border-color: #c7d2fe; }
@@ -99,11 +89,10 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .alert-type { font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .alert-comment { font-size: 10.5px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
 .alert-time { font-size: 9.5px; color: var(--text-3); margin-top: 2px; }
-.alert-del { width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text-3); font-size: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: all 0.15s; }
+.alert-del { width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text-3); font-size: 10px; display: flex; align-items: center; justify-content: none; cursor: pointer; flex-shrink: 0; transition: all 0.15s; }
 .alert-del:hover { border-color: var(--red); color: var(--red); background: #fef2f2; }
 .no-alerts { font-size: 12px; color: var(--text-3); text-align: center; padding: 10px 0; }
 
-/* forecast */
 .forecast-row { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .forecast-row::-webkit-scrollbar { display: none; }
 .forecast-day { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 5px; background: var(--white); border: 1px solid var(--border); border-radius: 9px; min-width: 38px; transition: border-color 0.15s; }
@@ -117,7 +106,6 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .btn-update { width: 100%; padding: 9px; border: 1.5px solid var(--blue); border-radius: 8px; background: var(--blue-light); color: var(--blue); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11.5px; font-weight: 700; cursor: pointer; transition: all 0.15s; margin-top: 2px; }
 .btn-update:hover { background: var(--blue); color: #fff; }
 
-/* MAP */
 .map-wrap { flex: 1; position: relative; overflow: hidden; }
 #map { width: 100%; height: 100%; }
 #map-loading { position: absolute; inset: 0; z-index: 600; background: rgba(243,244,248,0.92); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; backdrop-filter: blur(4px); transition: opacity 0.4s; }
@@ -127,10 +115,9 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .loader-text { font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: 1px; }
 .leaflet-control-attribution { background: rgba(255,255,255,0.85) !important; font-size: 10px !important; }
 
-/* MODAL */
 .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.35); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; }
 .modal-overlay.open { display: flex; }
-.modal-box { background: var(--white); border-radius: 16px; padding: 28px; width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); animation: modal-in 0.25s cubic-bezier(.16,1,.3,1); }
+.modal-box { background: var(--white); border-radius: 16px; padding: 28px; width: 380px; max-width: 90vw; box-shadow: 0 20px 60px rgba(0,0,0,0.15); animation: modal-in 0.25s cubic-bezier(.16,1,.3,1); }
 @keyframes modal-in { from{opacity:0;transform:scale(0.95) translateY(10px)} to{opacity:1;transform:scale(1) translateY(0)} }
 .modal-title { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
 .modal-sub { font-size: 13px; color: var(--text-2); margin-bottom: 20px; }
@@ -145,13 +132,59 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 .btn-save { flex: 2; padding: 11px; border: none; border-radius: 9px; background: linear-gradient(135deg, var(--blue), var(--accent)); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 14px rgba(59,91,219,0.3); }
 .btn-save:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(59,91,219,0.4); }
 
-/* TOAST */
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(16px); background: var(--text); color: #fff; padding: 10px 20px; border-radius: 9px; font-size: 12.5px; font-weight: 500; z-index: 9999; opacity: 0; transition: all 0.3s; pointer-events: none; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast.success { background: #16a34a; }
-.toast.error   { background: var(--red); }
+.toast.error { background: var(--red); }
 
 @keyframes pulse-marker { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+
+/* BOTÃO MOBILE PARA ABRIR SIDEBAR */
+.btn-sidebar-toggle { display: none; }
+
+/* OVERLAY PARA FECHAR SIDEBAR NO MOBILE */
+.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 199; }
+.sidebar-overlay.show { display: block; }
+
+/* RESPONSIVO MOBILE */
+@media (max-width: 768px) {
+  header { padding: 0 12px; height: 52px; }
+  .refresh-info { display: none; }
+  .header-divider { display: none; }
+  .live-pill { display: none; }
+  .user-name { display: none; }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    width: 85vw;
+    max-width: 320px;
+    transition: left 0.3s cubic-bezier(.16,1,.3,1);
+    z-index: 300;
+    border-right: none;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  }
+  .sidebar.open { left: 0; }
+
+  .btn-sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text-2);
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 4px;
+  }
+
+  .map-wrap { width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -165,6 +198,8 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 
   <header>
     <div class="header-left">
+      <!-- Botão menu mobile -->
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
       <a class="header-logo" href="index.html">
         <svg viewBox="0 0 52 60" fill="none">
           <path d="M26 2L4 12V30C4 42.15 13.6 53.47 26 57C38.4 53.47 48 42.15 48 30V12L26 2Z" fill="url(#sh3)"/>
@@ -190,19 +225,17 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
   </header>
 
   <div class="main">
-    <div class="sidebar">
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar" id="sidebar">
       <div class="sidebar-scroll">
-
         <div class="s-card" id="panel-dados">
           <div class="s-card-title">Monitoramento</div>
           <div class="loading-text">Obtendo localização...</div>
         </div>
-
         <div class="s-card" id="panel-forecast" style="display:none">
           <div class="s-card-title">Previsão 7 dias</div>
           <div class="forecast-row" id="forecast-row"></div>
         </div>
-
         <div class="s-card">
           <div class="s-card-title">Filtrar alertas</div>
           <div class="filter-row">
@@ -212,12 +245,10 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
             <button class="filter-btn" onclick="filtrarAlertas('automatico',this)">🤖 Auto</button>
           </div>
         </div>
-
         <div class="s-card">
           <div class="s-card-title">Meus alertas<span class="s-card-action" onclick="limparMeusAlertas()">Limpar meus</span></div>
           <div id="lista-alertas"><div class="no-alerts">Nenhum alerta registrado.</div></div>
         </div>
-
         <div class="s-card">
           <div class="s-card-title">Legenda</div>
           <div class="legend-item"><span class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444"></span>Alagamento · alto risco</div>
@@ -225,12 +256,10 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
           <div class="legend-item"><span class="legend-dot" style="background:#22c55e;box-shadow:0 0 5px #22c55e"></span>Área sem risco</div>
           <div class="legend-item"><span class="legend-dot" style="background:#eab308;box-shadow:0 0 5px #eab308"></span>Detectado pela API</div>
         </div>
-
         <div class="s-card">
           <div class="s-card-title">Como usar</div>
           <p style="font-size:12px;color:var(--text-2);line-height:1.6">Clique dentro da <strong style="color:var(--blue)">área monitorada</strong> no mapa para registrar um alerta.</p>
         </div>
-
       </div>
     </div>
 
@@ -274,6 +303,13 @@ document.getElementById('user-name-display').textContent = NOME.split(' ')[0] ||
 
 function logout() { localStorage.clear(); window.location.href = 'index.html'; }
 
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
 let map, pontoClicado, marcadores = [], filtroAtivo = 'todos', ultimoRisco = 0;
 const CENTRO = [-23.5405, -46.5760], RAIO = 1700;
 
@@ -302,17 +338,17 @@ setInterval(() => {
 }, 1000);
 
 function wmoInfo(wmo) {
-  if (wmo===0)             return {desc:'Céu limpo',          icon:'fa-sun',                cor:'#eab308',bg:'#fefce8'};
-  if (wmo<=3)              return {desc:'Parcialmente nublado',icon:'fa-cloud-sun',          cor:'#6b7280',bg:'#f9fafb'};
-  if (wmo<=49)             return {desc:'Névoa / neblina',    icon:'fa-smog',               cor:'#6b7280',bg:'#f9fafb'};
-  if (wmo<=59)             return {desc:'Chuvisco',           icon:'fa-cloud-drizzle',       cor:'#3b82f6',bg:'#eff6ff'};
-  if (wmo<=65)             return {desc:'Chuva',              icon:'fa-cloud-rain',          cor:'#3b82f6',bg:'#eff6ff'};
-  if (wmo<=79)             return {desc:'Neve / granizo',     icon:'fa-snowflake',           cor:'#06b6d4',bg:'#ecfeff'};
-  if (wmo===80||wmo===81)  return {desc:'Chuva moderada',     icon:'fa-cloud-showers-heavy', cor:'#3b82f6',bg:'#eff6ff'};
-  if (wmo===82)            return {desc:'Chuva intensa',      icon:'fa-cloud-showers-heavy', cor:'#ef4444',bg:'#fef2f2'};
-  if (wmo===95)            return {desc:'Tempestade',         icon:'fa-bolt',                cor:'#f97316',bg:'#fff7ed'};
-  if (wmo>=96)             return {desc:'Tempestade c/ granizo',icon:'fa-bolt',              cor:'#ef4444',bg:'#fef2f2'};
-  return                          {desc:'Variável',           icon:'fa-cloud',               cor:'#6b7280',bg:'#f9fafb'};
+  if (wmo===0)             return {desc:'Céu limpo',           icon:'fa-sun',                cor:'#eab308',bg:'#fefce8'};
+  if (wmo<=3)              return {desc:'Parcialmente nublado', icon:'fa-cloud-sun',          cor:'#6b7280',bg:'#f9fafb'};
+  if (wmo<=49)             return {desc:'Névoa / neblina',     icon:'fa-smog',               cor:'#6b7280',bg:'#f9fafb'};
+  if (wmo<=59)             return {desc:'Chuvisco',            icon:'fa-cloud-drizzle',       cor:'#3b82f6',bg:'#eff6ff'};
+  if (wmo<=65)             return {desc:'Chuva',               icon:'fa-cloud-rain',          cor:'#3b82f6',bg:'#eff6ff'};
+  if (wmo<=79)             return {desc:'Neve / granizo',      icon:'fa-snowflake',           cor:'#06b6d4',bg:'#ecfeff'};
+  if (wmo===80||wmo===81)  return {desc:'Chuva moderada',      icon:'fa-cloud-showers-heavy', cor:'#3b82f6',bg:'#eff6ff'};
+  if (wmo===82)            return {desc:'Chuva intensa',       icon:'fa-cloud-showers-heavy', cor:'#ef4444',bg:'#fef2f2'};
+  if (wmo===95)            return {desc:'Tempestade',          icon:'fa-bolt',                cor:'#f97316',bg:'#fff7ed'};
+  if (wmo>=96)             return {desc:'Tempestade c/ granizo',icon:'fa-bolt',               cor:'#ef4444',bg:'#fef2f2'};
+  return                          {desc:'Variável',            icon:'fa-cloud',               cor:'#6b7280',bg:'#f9fafb'};
 }
 
 function calcularRisco(v,c,w){
@@ -344,8 +380,6 @@ function obterLocalizacao(){
   document.getElementById('map-loading')?.classList.remove('hidden');
   navigator.geolocation.getCurrentPosition(pos => {
     const lat=pos.coords.latitude, lon=pos.coords.longitude;
-
-    // ── API CORRIGIDA: busca umidade no campo current ──
     const url = `https://api.open-meteo.com/v1/forecast`
       + `?latitude=${lat}&longitude=${lon}`
       + `&current=temperature_2m,apparent_temperature,precipitation,rain,weathercode,windspeed_10m,relativehumidity_2m`
@@ -360,7 +394,7 @@ function obterLocalizacao(){
       const vento     = cur.windspeed_10m;
       const wmo       = cur.weathercode;
       const chuva     = cur.rain ?? cur.precipitation ?? 0;
-      const umidade   = cur.relativehumidity_2m ?? '–'; // ✅ corrigido
+      const umidade   = cur.relativehumidity_2m ?? '–';
       const probHoras = data.hourly?.precipitation_probability?.slice(0,6) ?? [];
       const clima     = wmoInfo(wmo);
       const risco     = calcularRisco(vento, chuva, wmo);
