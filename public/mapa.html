@@ -144,7 +144,7 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
 
 /* OVERLAY PARA FECHAR SIDEBAR NO MOBILE */
 .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 199; }
-.sidebar-overlay.show { display: block; }
+.sidebar-overlay.show { display: block; z-index: 9998 !important; }
 
 /* RESPONSIVO MOBILE */
 @media (max-width: 768px) {
@@ -166,7 +166,7 @@ header { background: var(--white); border-bottom: 1px solid var(--border); paddi
     border-right: none;
     box-shadow: 4px 0 20px rgba(0,0,0,0.15);
   }
-  .sidebar.open { left: 0; }
+  .sidebar.open { left: 0; z-index: 9999 !important;}
 
   .btn-sidebar-toggle {
     display: flex;
